@@ -7,6 +7,7 @@ namespace Kerox\Tmdb;
 use Kerox\Tmdb\Api\Companies;
 use Kerox\Tmdb\Api\Genres;
 use Kerox\Tmdb\Api\Movies;
+use Kerox\Tmdb\Api\Networks;
 use Kerox\Tmdb\Api\Trending;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -35,6 +36,11 @@ final class Tmdb
     public function movies(): Movies
     {
         return new Movies($this->token, $this->client);
+    }
+
+    public function networks(): Networks
+    {
+        return new Networks($this->token, $this->client);
     }
 
     public function trending(
