@@ -7,7 +7,9 @@ namespace Kerox\Tmdb;
 use Kerox\Tmdb\Api\Companies;
 use Kerox\Tmdb\Api\Genres;
 use Kerox\Tmdb\Api\Movies;
+use Kerox\Tmdb\Api\Trending;
 use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\ResponseInterface;
 
 final class Tmdb
 {
@@ -33,5 +35,14 @@ final class Tmdb
     public function movies(): Movies
     {
         return new Movies($this->token, $this->client);
+    }
+
+    public function trending(
+        string $mediaType = Trending::MEDIA_TYPE_ALL,
+        string $timeWindow = Trending::TIME_WINDOW_DAY
+    ): ResponseInterface {
+        $trending = new Trending($this->token, $this->client);
+
+        return $trending($mediaType, $timeWindow);
     }
 }
