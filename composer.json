@@ -21,6 +21,9 @@
     "phpunit/phpunit": "^9.5",
     "symfony/http-client": "^5.2"
   },
+  "suggest": {
+    "symfony/http-client": "To send PSR-7 request with PSR-18 compatible HTTP client"
+  },
   "config": {
     "optimize-autoloader": true,
     "sort-packages": true

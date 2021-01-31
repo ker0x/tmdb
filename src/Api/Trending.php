@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Api;
 
 use Psr\Http\Message\ResponseInterface;
 
-class Trending extends AbstractApi
+final class Trending extends AbstractApi
 {
     public const BASE_URI = 'trending';
 
