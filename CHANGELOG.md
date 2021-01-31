@@ -1,12 +1,11 @@
 # CHANGELOG
 
-The Messenger library follows [SemVer](http://semver.org/).
-
 ## 0.x
 
 **Changelog** (since [`v0.1`](https://github.com/ker0x/messenger/compare/v0.1...v0.2))
 
 - v0.2 (2021-02)
+    - Add **Networks** API
     - Add **Search** API
     - Update **Movies** API
         * Add `credits` method
