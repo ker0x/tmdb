@@ -15,6 +15,11 @@ final class Movies extends AbstractApi
         return $this->sendGetRequest(sprintf('%s/%d', self::BASE_URI, $movieId));
     }
 
+    public function credits(int $movieId): ResponseInterface
+    {
+        return $this->sendGetRequest(sprintf('%s/%d/credits', self::BASE_URI, $movieId));
+    }
+
     public function latest(): ResponseInterface
     {
         return $this->sendGetRequest(sprintf('/%s/latest', self::BASE_URI));
