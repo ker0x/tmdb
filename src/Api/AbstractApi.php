@@ -48,19 +48,15 @@ abstract class AbstractApi implements RequestFactoryInterface, UriFactoryInterfa
 
     public function createRequest(string $method, $uri): RequestInterface
     {
-        if (!$uri instanceof UriInterface) {
-            $uri = $this->createUri($uri);
-        }
-
         return $this->factory->createRequest($method, $uri)
             ->withHeader('Authorization', sprintf('Bearer %s', $this->token))
             ->withHeader('Content-Type', 'application/json;charset=utf-8');
     }
 
-    protected function sendGetRequest(string|UriInterface $uri): ResponseInterface
+    protected function sendGetRequest(string $uri, array $queryParameters = []): ResponseInterface
     {
         return $this->client->sendRequest(
-            $this->createRequest(RequestMethodInterface::METHOD_GET, $uri)
+            $this->createRequest(RequestMethodInterface::METHOD_GET, $this->createUri($uri, $queryParameters))
         );
     }
 }

@@ -8,7 +8,7 @@ use Kerox\Tmdb\Tmdb;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\Psr18Client;
 
-class MoviesTest extends TestCase
+class SearchTest extends TestCase
 {
     protected Tmdb $tmdb;
 
@@ -17,57 +17,57 @@ class MoviesTest extends TestCase
         $this->tmdb = new Tmdb(getenv('TMDB_API_TOKEN'), new Psr18Client());
     }
 
-    public function testGetById()
+    public function testSearchCompanies()
     {
-        $response = $this->tmdb->movies()->get(300);
+        $response = $this->tmdb->search()->company('Warner');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetCredits()
+    public function testSearchCollection()
     {
-        $response = $this->tmdb->movies()->credits(300);
+        $response = $this->tmdb->search()->collection('Alien');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetLatest()
+    public function testSearchKeywords()
     {
-        $response = $this->tmdb->movies()->latest();
+        $response = $this->tmdb->search()->keyword('fantastic');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetNowPlaying()
+    public function testSearchMovie()
     {
-        $response = $this->tmdb->movies()->nowPlaying();
+        $response = $this->tmdb->search()->movie('Alien');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetPopular()
+    public function testSearchMulti()
     {
-        $response = $this->tmdb->movies()->popular();
+        $response = $this->tmdb->search()->multi('Warner');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetTopRated()
+    public function testSearchPerson()
     {
-        $response = $this->tmdb->movies()->topRated();
+        $response = $this->tmdb->search()->person('Steven Spielberg');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetUpcoming()
+    public function testSearchTv()
     {
-        $response = $this->tmdb->movies()->upcoming();
+        $response = $this->tmdb->search()->tv('Lost');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
