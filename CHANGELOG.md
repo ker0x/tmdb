@@ -6,6 +6,7 @@
 
 - v0.2 (2021-02)
     - Add **Networks** API
+    - Add **Reviews** API
     - Add **Search** API
     - Update **Movies** API
         * Add `credits` method
