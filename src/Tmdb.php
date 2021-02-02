@@ -8,6 +8,7 @@ use Kerox\Tmdb\Api\Companies;
 use Kerox\Tmdb\Api\Genres;
 use Kerox\Tmdb\Api\Movies;
 use Kerox\Tmdb\Api\Networks;
+use Kerox\Tmdb\Api\Reviews;
 use Kerox\Tmdb\Api\Search;
 use Kerox\Tmdb\Api\Trending;
 use Psr\Http\Client\ClientInterface;
@@ -42,6 +43,13 @@ final class Tmdb
     public function networks(): Networks
     {
         return new Networks($this->token, $this->client);
+    }
+
+    public function reviews(string $reviewId): ResponseInterface
+    {
+        $reviews = new Reviews($this->token, $this->client);
+
+        return $reviews($reviewId);
     }
 
     public function search(): Search

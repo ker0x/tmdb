@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class TrendingTest extends AbstractApiTest
+class ReviewsTest extends AbstractApiTest
 {
     public function testGet()
     {
-        $response = $this->tmdb->trending();
+        $response = $this->tmdb->reviews('5013bc76760ee372cb00253e');
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());

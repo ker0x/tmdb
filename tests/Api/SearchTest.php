@@ -4,19 +4,8 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-use Kerox\Tmdb\Tmdb;
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\HttpClient\Psr18Client;
-
-class SearchTest extends TestCase
+class SearchTest extends AbstractApiTest
 {
-    protected Tmdb $tmdb;
-
-    public function setUp(): void
-    {
-        $this->tmdb = new Tmdb(getenv('TMDB_API_TOKEN'), new Psr18Client());
-    }
-
     public function testSearchCompanies()
     {
         $response = $this->tmdb->search()->company('Warner');
