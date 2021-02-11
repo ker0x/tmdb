@@ -29,11 +29,11 @@ abstract class AbstractApi implements RequestFactoryInterface, UriFactoryInterfa
     {
         $query = [];
         foreach ($queryParameters as $parameter => $value) {
-            $query[] = sprintf('%s=%s', $parameter, urldecode((string) $value));
+            $query[] = sprintf('%s=%s', $parameter, urlencode((string) $value));
         }
 
         if (!empty($query)) {
-            $uri = sprintf('%s?%s', $uri, implode('%', $query));
+            $uri = sprintf('%s?%s', $uri, implode('&', $query));
         }
 
         return $this->factory->createUri(

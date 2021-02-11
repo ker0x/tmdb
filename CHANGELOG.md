@@ -2,6 +2,11 @@
 
 ## 0.x
 
+**Changelog** (since [`v0.2`](https://github.com/ker0x/messenger/compare/v0.2...v0.3))
+
+- v0.3 (2021-02)
+    - Add **People** API
+
 **Changelog** (since [`v0.1`](https://github.com/ker0x/messenger/compare/v0.1...v0.2))
 
 - v0.2 (2021-02)
