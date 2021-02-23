@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Tests\Api;
 
 class SearchTest extends AbstractApiTest
 {
-    public function testSearchCompanies()
+    public function testSearchCompanies(): void
     {
         $response = $this->tmdb->search()->company('Warner');
 
@@ -14,7 +14,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchCollection()
+    public function testSearchCollection(): void
     {
         $response = $this->tmdb->search()->collection('Alien');
 
@@ -22,7 +22,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchKeywords()
+    public function testSearchKeywords(): void
     {
         $response = $this->tmdb->search()->keyword('fantastic');
 
@@ -30,7 +30,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchMovie()
+    public function testSearchMovie(): void
     {
         $response = $this->tmdb->search()->movie('Alien');
 
@@ -38,7 +38,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchMulti()
+    public function testSearchMulti(): void
     {
         $response = $this->tmdb->search()->multi('Warner');
 
@@ -46,7 +46,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchPerson()
+    public function testSearchPerson(): void
     {
         $response = $this->tmdb->search()->person('Steven Spielberg');
 
@@ -54,7 +54,7 @@ class SearchTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchTv()
+    public function testSearchTv(): void
     {
         $response = $this->tmdb->search()->tv('Lost');
 

@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class GenresTest extends AbstractApiTest
+class DiscoverTest extends AbstractApiTest
 {
-    public function testGetMovieList(): void
+    public function testGetMovie(): void
     {
-        $response = $this->tmdb->genres()->movieList();
+        $response = $this->tmdb->discover()->movie();
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetTvList(): void
+    public function testGetTv(): void
     {
-        $response = $this->tmdb->genres()->tvList();
+        $response = $this->tmdb->discover()->tv();
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());

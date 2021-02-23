@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Tests\Api;
 
 class NetworksTest extends AbstractApiTest
 {
-    public function testGetById()
+    public function testGetById(): void
     {
         $response = $this->tmdb->networks()->get(20);
 
@@ -14,7 +14,7 @@ class NetworksTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetAlternativeNameById()
+    public function testGetAlternativeNameById(): void
     {
         $response = $this->tmdb->networks()->alternativeNames(20);
 
@@ -22,7 +22,7 @@ class NetworksTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetImagesById()
+    public function testGetImagesById(): void
     {
         $response = $this->tmdb->networks()->images(20);
 
