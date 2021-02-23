@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb;
 
+use Kerox\Tmdb\Api\Collections;
 use Kerox\Tmdb\Api\Companies;
+use Kerox\Tmdb\Api\Discover;
+use Kerox\Tmdb\Api\Find;
 use Kerox\Tmdb\Api\Genres;
 use Kerox\Tmdb\Api\Movies;
 use Kerox\Tmdb\Api\Networks;
@@ -26,9 +29,26 @@ final class Tmdb
     ) {
     }
 
+    public function collections(): Collections
+    {
+        return new Collections($this->token, $this->client);
+    }
+
     public function companies(): Companies
     {
         return new Companies($this->token, $this->client);
+    }
+
+    public function discover(): Discover
+    {
+        return new Discover($this->token, $this->client);
+    }
+
+    public function find(string $externalId, string $externalSource = Find::EXT_IMDB_ID): ResponseInterface
+    {
+        $find = new Find($this->token, $this->client);
+
+        return $find($externalId, $externalSource);
     }
 
     public function genres(): Genres

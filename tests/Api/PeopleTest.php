@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Tests\Api;
 
 class PeopleTest extends AbstractApiTest
 {
-    public function testGetById()
+    public function testGetById(): void
     {
         $response = $this->tmdb->people()->get(488);
 
@@ -14,7 +14,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetChangesById()
+    public function testGetChangesById(): void
     {
         $response = $this->tmdb->people()->changes(488);
 
@@ -22,7 +22,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetMovieCreditsById()
+    public function testGetMovieCreditsById(): void
     {
         $response = $this->tmdb->people()->movieCredits(488);
 
@@ -30,7 +30,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetTvCreditsById()
+    public function testGetTvCreditsById(): void
     {
         $response = $this->tmdb->people()->tvCredits(488);
 
@@ -38,7 +38,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetCombinedCreditsById()
+    public function testGetCombinedCreditsById(): void
     {
         $response = $this->tmdb->people()->combinedCredits(488);
 
@@ -46,7 +46,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetExternalIdsById()
+    public function testGetExternalIdsById(): void
     {
         $response = $this->tmdb->people()->externalIds(488);
 
@@ -54,7 +54,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetImagesById()
+    public function testGetImagesById(): void
     {
         $response = $this->tmdb->people()->images(488);
 
@@ -62,7 +62,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetTaggedImagesById()
+    public function testGetTaggedImagesById(): void
     {
         $response = $this->tmdb->people()->taggedImages(488);
 
@@ -70,7 +70,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGettranslationsById()
+    public function testGettranslationsById(): void
     {
         $response = $this->tmdb->people()->translations(488);
 
@@ -78,7 +78,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetLatest()
+    public function testGetLatest(): void
     {
         $response = $this->tmdb->people()->latest();
 
@@ -86,7 +86,7 @@ class PeopleTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetPopular()
+    public function testGetPopular(): void
     {
         $response = $this->tmdb->people()->popular();
 

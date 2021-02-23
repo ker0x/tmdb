@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Tests\Api;
 
 class ReviewsTest extends AbstractApiTest
 {
-    public function testGet()
+    public function testGet(): void
     {
         $response = $this->tmdb->reviews('5013bc76760ee372cb00253e');
 

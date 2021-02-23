@@ -4,19 +4,11 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class CompaniesTest extends AbstractApiTest
+class CollectionsTest extends AbstractApiTest
 {
     public function testGetById(): void
     {
-        $response = $this->tmdb->companies()->get(20);
-
-        self::assertSame(200, $response->getStatusCode());
-        self::assertNotEmpty($response->getBody()->getContents());
-    }
-
-    public function testGetAlternativeNameById(): void
-    {
-        $response = $this->tmdb->companies()->alternativeNames(20);
+        $response = $this->tmdb->collections()->get(8091);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
@@ -24,7 +16,15 @@ class CompaniesTest extends AbstractApiTest
 
     public function testGetImagesById(): void
     {
-        $response = $this->tmdb->companies()->images(20);
+        $response = $this->tmdb->collections()->images(8091);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetTranslationsById(): void
+    {
+        $response = $this->tmdb->collections()->translations(8091);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());

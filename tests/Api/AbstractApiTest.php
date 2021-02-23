@@ -12,7 +12,7 @@ abstract class AbstractApiTest extends TestCase
 {
     protected Tmdb $tmdb;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->tmdb = new Tmdb(getenv('TMDB_API_TOKEN'), new Psr18Client());
     }

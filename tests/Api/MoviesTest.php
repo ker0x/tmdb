@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Tests\Api;
 
 class MoviesTest extends AbstractApiTest
 {
-    public function testGetById()
+    public function testGetById(): void
     {
         $response = $this->tmdb->movies()->get(300);
 
@@ -14,7 +14,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetCredits()
+    public function testGetCredits(): void
     {
         $response = $this->tmdb->movies()->credits(300);
 
@@ -22,7 +22,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetLatest()
+    public function testGetLatest(): void
     {
         $response = $this->tmdb->movies()->latest();
 
@@ -30,7 +30,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetNowPlaying()
+    public function testGetNowPlaying(): void
     {
         $response = $this->tmdb->movies()->nowPlaying();
 
@@ -38,7 +38,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetPopular()
+    public function testGetPopular(): void
     {
         $response = $this->tmdb->movies()->popular();
 
@@ -46,7 +46,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetTopRated()
+    public function testGetTopRated(): void
     {
         $response = $this->tmdb->movies()->topRated();
 
@@ -54,7 +54,7 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testGetUpcoming()
+    public function testGetUpcoming(): void
     {
         $response = $this->tmdb->movies()->upcoming();
 
