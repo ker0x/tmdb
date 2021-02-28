@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Api;
 
 use Psr\Http\Message\ResponseInterface;
 
-class Find extends AbstractApi
+final class Find extends AbstractApi
 {
     public const BASE_URI = 'find';
 

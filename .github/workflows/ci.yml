@@ -17,17 +17,18 @@ jobs:
         php-versions: [ '8.0' ]
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      - name: php-setup
+      - name: Install system dependencies
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
 
-      - name: composer-validate
+      - name: Validate composer
         run: composer validate
 
-      - name: composer-cache
+      - name: Cache composer dependencies
         id: composer-cache
         uses: actions/cache@v2
         with:
@@ -36,19 +37,22 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.php-versions }}-composer-
 
-      - name: composer-install
+      - name: Install composer dependencies
         if: steps.composer-cache.outputs.cache-hit != 'true'
         run: composer install --prefer-dist --no-progress --no-suggest ${{ matrix.composer-flags }}
 
-      - name: php-cs-fixer
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse
+
+      - name: Run PHP-CS-Fixer
         run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose --config=.php_cs.dist
 
-      - name: phpunit
+      - name: Run PHPunit
         env:
           TMDB_API_TOKEN: ${{ secrets.TMDB_API_TOKEN }}
         run: vendor/bin/phpunit --coverage-text --coverage-clover=build/coverage.xml
 
-      - name: coverage
+      - name: Upload tests coverage
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
