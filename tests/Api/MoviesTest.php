@@ -22,6 +22,94 @@ class MoviesTest extends AbstractApiTest
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
+    public function testGetExternalIds(): void
+    {
+        $response = $this->tmdb->movies()->externalIds(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetImages(): void
+    {
+        $response = $this->tmdb->movies()->images(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetKeywords(): void
+    {
+        $response = $this->tmdb->movies()->keywords(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetLists(): void
+    {
+        $response = $this->tmdb->movies()->lists(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetRecommendations(): void
+    {
+        $response = $this->tmdb->movies()->recommendations(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetReleaseDates(): void
+    {
+        $response = $this->tmdb->movies()->releaseDates(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetReviews(): void
+    {
+        $response = $this->tmdb->movies()->reviews(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetSimilar(): void
+    {
+        $response = $this->tmdb->movies()->similar(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetTranslations(): void
+    {
+        $response = $this->tmdb->movies()->translations(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetVideos(): void
+    {
+        $response = $this->tmdb->movies()->videos(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
+    public function testGetWatchProviders(): void
+    {
+        $response = $this->tmdb->movies()->watchProviders(300);
+
+        self::assertSame(200, $response->getStatusCode());
+        self::assertNotEmpty($response->getBody()->getContents());
+    }
+
     public function testGetLatest(): void
     {
         $response = $this->tmdb->movies()->latest();

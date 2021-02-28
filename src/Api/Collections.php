@@ -6,7 +6,7 @@ namespace Kerox\Tmdb\Api;
 
 use Psr\Http\Message\ResponseInterface;
 
-class Collections extends AbstractApi
+final class Collections extends AbstractApi
 {
     public const BASE_URI = 'collection';
 
