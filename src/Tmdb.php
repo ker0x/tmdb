@@ -15,6 +15,7 @@ use Kerox\Tmdb\Api\People;
 use Kerox\Tmdb\Api\Reviews;
 use Kerox\Tmdb\Api\Search;
 use Kerox\Tmdb\Api\Trending;
+use Kerox\Tmdb\Api\Tv;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -90,5 +91,10 @@ final class Tmdb
         $trending = new Trending($this->token, $this->client);
 
         return $trending($mediaType, $timeWindow);
+    }
+
+    public function tv(): Tv
+    {
+        return new Tv($this->token, $this->client);
     }
 }
