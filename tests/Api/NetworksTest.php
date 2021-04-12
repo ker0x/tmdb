@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class NetworksTest extends AbstractApiTest
+final class NetworksTest extends AbstractApiTest
 {
-    public function testGetById(): void
+    public function testGet(): void
     {
         $response = $this->tmdb->networks()->get(20);
 

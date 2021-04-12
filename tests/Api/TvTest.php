@@ -4,21 +4,11 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class TvTest extends AbstractApiTest
+final class TvTest extends AbstractApiTest
 {
-    public function testGetById(): void
+    public function testGet(): void
     {
         $response = $this->tmdb->tv()->get(4087);
-
-        self::assertSame(200, $response->getStatusCode());
-        self::assertNotEmpty($response->getBody()->getContents());
-    }
-
-    public function testGetAccountStates(): void
-    {
-        self::markTestSkipped('Unable to test currently.');
-
-        $response = $this->tmdb->tv()->accountStates(4087);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());

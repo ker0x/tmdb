@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class ReviewsTest extends AbstractApiTest
+final class ReviewsTest extends AbstractApiTest
 {
     public function testGet(): void
     {

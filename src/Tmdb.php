@@ -16,6 +16,9 @@ use Kerox\Tmdb\Api\Reviews;
 use Kerox\Tmdb\Api\Search;
 use Kerox\Tmdb\Api\Trending;
 use Kerox\Tmdb\Api\Tv;
+use Kerox\Tmdb\Api\TvEpisodeGroups;
+use Kerox\Tmdb\Api\TvEpisodes;
+use Kerox\Tmdb\Api\TvSeasons;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -47,9 +50,7 @@ final class Tmdb
 
     public function find(string $externalId, string $externalSource = Find::EXT_IMDB_ID): ResponseInterface
     {
-        $find = new Find($this->token, $this->client);
-
-        return $find($externalId, $externalSource);
+        return (new Find($this->token, $this->client))($externalId, $externalSource);
     }
 
     public function genres(): Genres
@@ -74,9 +75,7 @@ final class Tmdb
 
     public function reviews(string $reviewId): ResponseInterface
     {
-        $reviews = new Reviews($this->token, $this->client);
-
-        return $reviews($reviewId);
+        return (new Reviews($this->token, $this->client))($reviewId);
     }
 
     public function search(): Search
@@ -88,13 +87,26 @@ final class Tmdb
         string $mediaType = Trending::MEDIA_TYPE_ALL,
         string $timeWindow = Trending::TIME_WINDOW_DAY
     ): ResponseInterface {
-        $trending = new Trending($this->token, $this->client);
-
-        return $trending($mediaType, $timeWindow);
+        return (new Trending($this->token, $this->client))($mediaType, $timeWindow);
     }
 
     public function tv(): Tv
     {
         return new Tv($this->token, $this->client);
+    }
+
+    public function tvSeasons(): TvSeasons
+    {
+        return new TvSeasons($this->token, $this->client);
+    }
+
+    public function tvEpisodes(): TvEpisodes
+    {
+        return new TvEpisodes($this->token, $this->client);
+    }
+
+    public function tvEpisodeGroups(string $episodeGroupId): ResponseInterface
+    {
+        return (new TvEpisodeGroups($this->token, $this->client))($episodeGroupId);
     }
 }
