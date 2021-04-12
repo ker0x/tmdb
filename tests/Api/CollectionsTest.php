@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class CollectionsTest extends AbstractApiTest
+final class CollectionsTest extends AbstractApiTest
 {
-    public function testGetById(): void
+    public function testGet(): void
     {
         $response = $this->tmdb->collections()->get(8091);
 

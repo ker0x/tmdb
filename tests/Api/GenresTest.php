@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class GenresTest extends AbstractApiTest
+final class GenresTest extends AbstractApiTest
 {
     public function testGetMovieList(): void
     {

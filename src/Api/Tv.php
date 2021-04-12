@@ -15,11 +15,6 @@ final class Tv extends AbstractApi
         return $this->sendGetRequest(sprintf('%s/%d', self::BASE_URI, $tvId));
     }
 
-    public function accountStates(int $tvId): ResponseInterface
-    {
-        return $this->sendGetRequest(sprintf('%s/%d/account_states', self::BASE_URI, $tvId));
-    }
-
     public function aggregateCredits(int $tvId): ResponseInterface
     {
         return $this->sendGetRequest(sprintf('%s/%d/aggregate_credits', self::BASE_URI, $tvId));

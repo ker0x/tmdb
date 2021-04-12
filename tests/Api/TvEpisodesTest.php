@@ -4,59 +4,59 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-final class SearchTest extends AbstractApiTest
+class TvEpisodesTest extends AbstractApiTest
 {
-    public function testSearchCompanies(): void
+    public function testGet(): void
     {
-        $response = $this->tmdb->search()->company('Warner');
+        $response = $this->tmdb->tvEpisodes()->get(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchCollection(): void
+    public function testGetChanges(): void
     {
-        $response = $this->tmdb->search()->collection('Alien');
+        $response = $this->tmdb->tvEpisodes()->changes(283988);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchKeywords(): void
+    public function testGetCredits(): void
     {
-        $response = $this->tmdb->search()->keyword('fantastic');
+        $response = $this->tmdb->tvEpisodes()->credits(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchMovie(): void
+    public function testGetExternalIds(): void
     {
-        $response = $this->tmdb->search()->movie('Alien');
+        $response = $this->tmdb->tvEpisodes()->externalIds(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchMulti(): void
+    public function testGetImages(): void
     {
-        $response = $this->tmdb->search()->multi('Warner');
+        $response = $this->tmdb->tvEpisodes()->images(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchPerson(): void
+    public function testGetTranslations(): void
     {
-        $response = $this->tmdb->search()->person('Steven Spielberg');
+        $response = $this->tmdb->tvEpisodes()->translations(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
 
-    public function testSearchTv(): void
+    public function testGetVideos(): void
     {
-        $response = $this->tmdb->search()->tv('Lost');
+        $response = $this->tmdb->tvEpisodes()->videos(4087, 1, 1);
 
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());

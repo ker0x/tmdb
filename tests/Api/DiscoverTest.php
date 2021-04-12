@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Kerox\Tmdb\Tests\Api;
 
-class DiscoverTest extends AbstractApiTest
+final class DiscoverTest extends AbstractApiTest
 {
     public function testGetMovie(): void
     {
