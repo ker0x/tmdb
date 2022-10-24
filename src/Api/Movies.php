@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 final class Movies extends AbstractApi
 {
-    private const BASE_URI = 'movie';
+    public const BASE_URI = 'movie';
 
     public function get(int $movieId): ResponseInterface
     {

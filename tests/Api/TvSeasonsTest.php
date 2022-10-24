@@ -69,5 +69,4 @@ final class TvSeasonsTest extends AbstractApiTest
         self::assertSame(200, $response->getStatusCode());
         self::assertNotEmpty($response->getBody()->getContents());
     }
-
 }
