@@ -19,8 +19,8 @@ abstract class AbstractApi implements RequestFactoryInterface, UriFactoryInterfa
     private Psr17Factory $factory;
 
     public function __construct(
-        private string $token,
-        private ClientInterface $client,
+        private readonly string $token,
+        private readonly ClientInterface $client,
     ) {
         $this->factory = new Psr17Factory();
     }
