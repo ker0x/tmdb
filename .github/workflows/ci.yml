@@ -14,16 +14,26 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-versions: [ '8.0' ]
+        php-versions: [ '8.1', '8.2' ]
+        allow-failure: [ false ]
+        coverage: [ false ]
+        composer-flags: [ '' ]
+        include:
+          - php-versions: '8.1'
+            coverage: true
+          - php-versions: '8.2'
+            allow-failure: true
+            composer-flags: '--ignore-platform-req php'
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Install system dependencies
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
+          coverage: xdebug
 
       - name: Validate composer
         run: composer validate
@@ -45,14 +55,19 @@ jobs:
         run: vendor/bin/phpstan analyse
 
       - name: Run PHP-CS-Fixer
-        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose --config=.php_cs.dist
+        continue-on-error: ${{ matrix.allow-failure }}
+        env:
+          PHP_CS_FIXER_IGNORE_ENV: ${{ matrix.allow-failure }}
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff --verbose
 
       - name: Run PHPunit
         env:
           TMDB_API_TOKEN: ${{ secrets.TMDB_API_TOKEN }}
-        run: vendor/bin/phpunit --coverage-text --coverage-clover=build/coverage.xml
+          XDEBUG_MODE: coverage
+        run: vendor/bin/phpunit
 
       - name: Upload tests coverage
+        if: ${{ matrix.coverage }}
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

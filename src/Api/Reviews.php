@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 final class Reviews extends AbstractApi
 {
-    private const BASE_URI = 'review';
+    public const BASE_URI = 'review';
 
     public function __invoke(string $reviewId): ResponseInterface
     {

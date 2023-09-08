@@ -8,7 +8,7 @@ use Psr\Http\Message\ResponseInterface;
 
 final class Search extends AbstractApi
 {
-    private const BASE_URI = 'search';
+    public const BASE_URI = 'search';
 
     public function company(string $query, int $page = 1): ResponseInterface
     {

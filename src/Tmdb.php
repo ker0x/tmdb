@@ -28,8 +28,8 @@ final class Tmdb
     public const API_VERSION = '3';
 
     public function __construct(
-        private string $token,
-        private ClientInterface $client,
+        private readonly string $token,
+        private readonly ClientInterface $client,
     ) {
     }
 

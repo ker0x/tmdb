@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/codecov/c/gh/ker0x/tmdb?style=for-the-badge" alt="Coverage">
     </a>
     <a href="https://php.net" title="PHP Version">
-        <img src="https://img.shields.io/badge/php-%3E%3D%208.0-8892BF.svg?style=for-the-badge" alt="PHP Version">
+        <img src="https://img.shields.io/badge/php-%3E%3D%208.1-8892BF.svg?style=for-the-badge" alt="PHP Version">
     </a>
     <a href="https://packagist.org/packages/kerox/tmdb" title="Downloads">
         <img src="https://img.shields.io/packagist/dt/kerox/tmdb.svg?style=for-the-badge" alt="Downloads">
@@ -34,10 +34,6 @@ You can install TMDb using Composer:
 ```
 composer require kerox/tmdb
 ```
-
-You will then need to:
-* run `composer install` to get these dependencies added to your vendor directory
-* add the autoloader to your application with this line: `require('vendor/autoload.php');`
 
 ## Usage
 
