@@ -80,8 +80,11 @@ final class Movies extends AbstractApi
         return $this->sendGetRequest(sprintf('/%s/latest', self::BASE_URI));
     }
 
-    public function nowPlaying(): ResponseInterface
+    public function nowPlaying(string $region = ""): ResponseInterface
     {
+        if(!empty($region)){
+            return $this->sendGetRequest(sprintf('%s/now_playing', self::BASE_URI),['region'=>$region]);
+        }
         return $this->sendGetRequest(sprintf('%s/now_playing', self::BASE_URI));
     }
 
